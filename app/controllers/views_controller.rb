@@ -1,17 +1,5 @@
 class ViewsController < ApplicationController
-  before_action :set_view, only: [:show, :update, :destroy]
-
-  # GET /views
-  def index
-    @views = View.all
-
-    render json: @views
-  end
-
-  # GET /views/1
-  def show
-    render json: @view
-  end
+  before_action :set_view, only: [:destroy]
 
   # POST /views
   def create
@@ -19,15 +7,6 @@ class ViewsController < ApplicationController
 
     if @view.save
       render json: @view, status: :created, location: @view
-    else
-      render json: @view.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /views/1
-  def update
-    if @view.update(view_params)
-      render json: @view
     else
       render json: @view.errors, status: :unprocessable_entity
     end

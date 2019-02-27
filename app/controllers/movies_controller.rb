@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: [:show, :update, :destroy]
+  before_action :set_movie, only: [:show]
 
   # GET /movies
   def index
@@ -22,20 +22,6 @@ class MoviesController < ApplicationController
     else
       render json: @movie.errors, status: :unprocessable_entity
     end
-  end
-
-  # PATCH/PUT /movies/1
-  def update
-    if @movie.update(movie_params)
-      render json: @movie
-    else
-      render json: @movie.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /movies/1
-  def destroy
-    @movie.destroy
   end
 
   private

@@ -1,12 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
-
-  # GET /users
-  def index
-    @users = User.all
-
-    render json: @users
-  end
+  before_action :set_user, only: [:show, :update]
 
   # GET /users/1
   def show
@@ -33,9 +26,12 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  def destroy
-    @user.destroy
+  def reviews
+    render json: @user.reviews
+  end
+
+  def views
+    render json: @user.views
   end
 
   private
