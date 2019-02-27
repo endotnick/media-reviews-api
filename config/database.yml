@@ -20,6 +20,10 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost  
+  username: media-review-api
+  password: password
+  # password: <%= ENV['API_DATABASE_PASSWORD'] %>
 
 development:
   <<: *default
@@ -82,4 +86,4 @@ production:
   <<: *default
   database: media-review-api_production
   username: media-review-api
-  password: <%= ENV['MEDIA-REVIEW-API_DATABASE_PASSWORD'] %>
+  password: <%= ENV['API_DATABASE_PASSWORD'] %>
