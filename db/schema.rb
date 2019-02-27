@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2019_02_27_045458) do
   enable_extension "plpgsql"
 
   create_table "movies", force: :cascade do |t|
-    t.integer "tmbdb_id"
+    t.integer "tmdb_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
