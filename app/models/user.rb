@@ -4,4 +4,13 @@ class User < ApplicationRecord
   has_many :views
   has_many :viewed_media, through: :views, source: :medium
   has_secure_password
+
+  def find
+    user = User.find_by(email: params[:user][:email])
+    if user
+      render json: user
+    else
+      render json: user.errors.full_messages
+    end
+  end
 end
