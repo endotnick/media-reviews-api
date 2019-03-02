@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: [:show, :update, :destroy]
+  before_action :set_review, only: %i[show update destroy]
+  before_action :authenticate_user, only: %i[update destroy]
 
   # GET /reviews/1
   def show
