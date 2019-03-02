@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post 'user_token' => 'user_token#create'
   get '/users/:id/reviews' => 'users#reviews'
   get '/users/:id/views' => 'users#views'
 
@@ -9,4 +10,7 @@ Rails.application.routes.draw do
   resources :views, only: %i[create destroy]
 
   resources :movies, only: %i[index create show]  
+
+  resources :current_user, only: %i[show]
+  resources :auth, only: %i[create destroy]
 end
