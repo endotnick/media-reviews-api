@@ -1,5 +1,7 @@
 class ViewsController < ApplicationController
-  before_action :set_view, only: [:destroy]
+  before_action :set_view, only: %i[destroy]
+  before_action :authenticate_user, only: %i[destroy]
+
 
   # POST /views
   def create
