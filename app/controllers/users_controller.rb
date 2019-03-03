@@ -1,12 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update]
 
-  # GET /users/1
   def show
     render json: @user
   end
 
-  # POST /users
   def create
     @user = User.new(user_params)
 
@@ -17,7 +15,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /users/1
   def update
     if @user.update(user_params)
       render json: @user
@@ -34,14 +31,21 @@ class UsersController < ApplicationController
     render json: @user.views
   end
 
+  def find
+    user = User.find_by(email: params[:user][:email])
+    if user
+      render json: user
+    else
+      render json: { error: 'User not found' }, status: :not_found
+    end
+  end
+
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:username, :email, :password_digest)
+      params.require(:user).permit(:email, :password)
     end
 end
