@@ -1,13 +1,11 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: %i[show update destroy]
-  before_action :authenticate_user, only: %i[update destroy]
+  before_action :authenticate_user, only: %i[create update destroy]
 
-  # GET /reviews/1
   def show
     render json: @review
   end
 
-  # POST /reviews
   def create
     @review = Review.new(review_params)
 
@@ -18,7 +16,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /reviews/1
   def update
     if @review.update(review_params)
       render json: @review
@@ -27,18 +24,15 @@ class ReviewsController < ApplicationController
     end
   end
 
-  # DELETE /reviews/1
   def destroy
     @review.destroy
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_review
       @review = Review.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def review_params
       params.require(:review).permit(:content, :rating, :user_id, :movie_id)
     end
