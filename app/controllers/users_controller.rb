@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update]
+  before_action :set_user, only: %i[show update reviews views]
 
   def show
     render json: @user
