@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2019_02_27_045458) do
     t.integer "rating"
     t.bigint "user_id"
     t.bigint "movie_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["movie_id"], name: "index_reviews_on_movie_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
@@ -41,6 +43,8 @@ ActiveRecord::Schema.define(version: 2019_02_27_045458) do
   create_table "views", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "movie_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["movie_id"], name: "index_views_on_movie_id"
     t.index ["user_id"], name: "index_views_on_user_id"
   end
