@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
    # User Routes
   resources :users, only: %i[show update create]
-  resources :reviews, only: %i[create update destroy]
+  resources :reviews, only: %i[show create update destroy]
   resources :views, only: %i[create destroy]
 
   resources :movies, only: %i[index create show]  

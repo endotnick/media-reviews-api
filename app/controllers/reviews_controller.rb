@@ -8,7 +8,11 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-
+    user = User.find_by(id: params[:review][:user_id])
+    movie = Movie.find_by(id: params[:review][:movie_id])
+    @review.reviewer = user
+    @review.movie = movie
+    
     if @review.save
       render json: @review, status: :created, location: @review
     else
