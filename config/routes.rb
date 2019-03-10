@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   post 'find_user' => 'users#find'
   
   get '/users/:id/reviews' => 'users#reviews'
-  get '/users/:id/views' => 'users#views'
+  get '/movies/:id/reviews' => 'movies#reviews'
 
    # User Routes
   resources :users, only: %i[show update create]

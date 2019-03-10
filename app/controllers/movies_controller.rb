@@ -1,19 +1,20 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: [:show]
+  before_action :set_movie, only: [:show, :reviews]
 
-  # GET /movies
   def index
     @movies = Movie.all
 
     render json: @movies, each_serializer: MovieIndexSerializer 
   end
 
-  # GET /movies/1
   def show
     render json: @movie
   end
 
-  # POST /movies
+  def reviews
+    render json: @movie.reviews, each_serializer: MovieReviewSerializer 
+  end
+
   def create
     @movie = Movie.new(movie_params)
 
