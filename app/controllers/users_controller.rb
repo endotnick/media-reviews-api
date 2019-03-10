@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   def reviews
-    render json: @user.reviews
+    render json: @user.reviews, each_serializer: UserReviewSerializer 
   end
 
   def views
