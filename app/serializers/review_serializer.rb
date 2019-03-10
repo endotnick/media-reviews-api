@@ -1,5 +1,5 @@
 class ReviewSerializer < ActiveModel::Serializer
-  attributes %i[id content rating reviewer]
+  attributes %i[id content rating reviewer updated_at]
   belongs_to :reviewer
   belongs_to :movie
 
