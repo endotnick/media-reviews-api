@@ -1,3 +1,3 @@
 class MovieSerializer < ActiveModel::Serializer
-  attributes %i[id tmdb_id title]
+  attributes %i[id tmdb_id poster_url title]
 end
