@@ -1,8 +1,10 @@
-# Rails CMS
+# Rails API
 
-This project models a Media reviews domain with User registration, authentication, third party identity integration, and the following relationships:  
+This project models a Media review site with User registration, authentication, and the following relationships:  
 
-![Model of Database](https://cdn.buttercms.com/0p3WydW7TSez9lsOW9Do)
+![Model of Database](https://cdn.buttercms.com/Vs4yJ4I0QPm9mSSGOtyb)
+
+This is a simplified version of the [previous media reviews](https://github.com/endotnick/media-reviews) site that is API only, with a [decoupled frontend](https://github.com/endotnick/media-reviews-frontend) built with React and Redux.
 
 ## Installation
 
