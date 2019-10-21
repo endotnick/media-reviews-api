@@ -41,7 +41,7 @@ After installation, run
 $ rails s -p 3001
 ```
 to launch the dev server.   
-Now, you'll need to [install the frontend](https://github.com/endotnick/media-reviews-api)
+Now, you'll need to [install the frontend](https://github.com/endotnick/media-reviews-frontend)
 
 
 ## Contributing
